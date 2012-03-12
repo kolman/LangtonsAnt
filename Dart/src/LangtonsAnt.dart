@@ -1,7 +1,7 @@
 #import('LangtonsAntLibrary.dart');
 
 void main() {
-  Ant ant = new Ant(Orientation.N, new Cell(0,0));
+  Ant ant = new Ant(new Direction.north(), new Cell(0,0));
   Board board = new Board([]);
   Game game = new Game(ant, board);
   

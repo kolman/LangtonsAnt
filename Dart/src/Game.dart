@@ -6,9 +6,9 @@ class Game {
   
   void tick() {
     if(_board.isBlack(_ant.position))
-      _ant.turn(Direction.LEFT);
+      _ant.turn(Rotation.LEFT);
     else
-      _ant.turn(Direction.RIGHT);
+      _ant.turn(Rotation.RIGHT);
     _board.flipColor(_ant.position);
     _ant.move();
   }
