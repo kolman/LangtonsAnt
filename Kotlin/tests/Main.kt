@@ -4,6 +4,7 @@ fun main(args : Array<String>) {
     GameTest().run()
     BoardTest().run()
     PositionTest().run()
+    DirectionTest().run()
     AntTest().run()
 
     var board = getBoardAfterNSteps(1000)
@@ -12,7 +13,7 @@ fun main(args : Array<String>) {
 
 fun getBoardAfterNSteps(n : Int) : Board {
     var board = Board(HashSet<Position>())
-    var ant = Ant(Position(0,0), Orientation.N)
+    var ant = Ant(Position(0,0), Direction.North)
     var game = Game(board, ant)
 
     for (i in 1..n) {

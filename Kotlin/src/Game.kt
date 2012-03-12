@@ -9,7 +9,7 @@ class Game(val board: Board, val ant: Ant){
         else
             ant.turn(Turn.Right)
         board.flip(ant.position)
-        ant.moveForward()
+        ant.move()
     }
 }
 
