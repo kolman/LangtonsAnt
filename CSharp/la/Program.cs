@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Langton;
 
 namespace la
@@ -9,10 +8,10 @@ namespace la
 		static void Main(string[] args)
 		{
 			var ticks = args.Length == 0
-			            	? 1000
-			            	: int.Parse(args[0]);
+							? 1000
+							: int.Parse(args[0]);
 			var board = new Board(new Position[0]);
-			var ant = new Ant(Orientation.N, new Position(0, 0));
+			var ant = new Ant(Direction.North, new Position(0, 0));
 			var game = new Game(board, ant);
 
 			while (ticks > 0)
@@ -21,10 +20,7 @@ namespace la
 				ticks--;
 			}
 
-			var blackCells = string.Join(
-				", ",
-				board.BlackCells
-					.Select(c => string.Format("[{0}, {1}]", c.X, c.Y)));
+			var blackCells = string.Join(", ", board.BlackCells);
 			Console.WriteLine(blackCells);
 
 			Console.ReadLine();

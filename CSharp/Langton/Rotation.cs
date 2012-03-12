@@ -1,6 +1,6 @@
 namespace Langton
 {
-	public enum Turn
+	public enum Rotation
 	{
 		Left,
 		Right

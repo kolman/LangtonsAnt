@@ -4,6 +4,6 @@ namespace Langton
 	{
 		Position Position { get; }
 		void MoveForward();
-		void Turn(Turn direction);
+		void Turn(Rotation direction);
 	}
 }

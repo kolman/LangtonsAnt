@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="AntTest.cs" />
     <Compile Include="BoardTest.cs" />
+    <Compile Include="DirectionTest.cs" />
     <Compile Include="GameTest.cs" />
     <Compile Include="PositionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

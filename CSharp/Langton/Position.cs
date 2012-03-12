@@ -2,13 +2,22 @@
 {
 	public class Position
 	{
-		public int X { get; private set; }
-		public int Y { get; private set; }
+		readonly int _x;
+		public int X
+		{
+			get { return _x; }
+		}
+
+		readonly int _y;
+		public int Y
+		{
+			get { return _y; }
+		}
 
 		public Position(int x, int y)
 		{
-			X = x;
-			Y = y;
+			_x = x;
+			_y = y;
 		}
 
 		public override bool Equals(object obj)
@@ -17,6 +26,11 @@
 			if (other != null)
 				return X == other.X && Y == other.Y;
 			return false;
+		}
+
+		public override int GetHashCode()
+		{
+			return _x + _y;
 		}
 
 		public override string ToString()

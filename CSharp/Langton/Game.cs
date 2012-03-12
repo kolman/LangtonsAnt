@@ -15,8 +15,8 @@ namespace Langton
 		{
 			var position = _ant.Position;
 			var turn = _board.IsBlack(position)
-			           	? Turn.Left
-			           	: Turn.Right;
+			           	? Rotation.Left
+			           	: Rotation.Right;
 			_ant.Turn(turn);
 			_board.FlipColor(position);
 			_ant.MoveForward();

@@ -6,32 +6,24 @@ namespace Langton.Tests
 	public class AntTest
 	{
 		readonly Position _initialPosition = new Position(0, 0);
+		readonly Direction _initialDirection = Direction.North;
 
-		[TestCase(Orientation.N, Orientation.W, Turn.Left)]
-		[TestCase(Orientation.W, Orientation.S, Turn.Left)]
-		[TestCase(Orientation.S, Orientation.E, Turn.Left)]
-		[TestCase(Orientation.E, Orientation.N, Turn.Left)]
-		[TestCase(Orientation.N, Orientation.E, Turn.Right)]
-		[TestCase(Orientation.E, Orientation.S, Turn.Right)]
-		[TestCase(Orientation.S, Orientation.W, Turn.Right)]
-		[TestCase(Orientation.W, Orientation.N, Turn.Right)]
-		public void CanTurn(Orientation current, Orientation expected, Turn direction)
+		[TestCase(Rotation.Left)]
+		[TestCase(Rotation.Right)]
+		public void CanTurn(Rotation rotation)
 		{
-			var ant = new Ant(current, _initialPosition);
-			ant.Turn(direction);
-			ant.Orientation.Should().Be(expected);
+			var ant = new Ant(_initialDirection, _initialPosition);
+			var expectedDirection = _initialDirection.Rotate(rotation);
+			ant.Turn(rotation);
+			ant.Direction.Should().Be(expectedDirection);
 		}
 
-		[TestCase(Orientation.N, 0, 1)]
-		[TestCase(Orientation.E, 1, 0)]
-		[TestCase(Orientation.S, 0, -1)]
-		[TestCase(Orientation.W, -1, 0)]
-		public void CanMoveForward(Orientation orientation, int dx, int dy)
+		[Test]
+		public void CanMoveForward()
 		{
-			var ant = new Ant(orientation, _initialPosition);
+			var ant = new Ant(_initialDirection, _initialPosition);
 			ant.MoveForward();
-			ant.Position.X.Should().Be(_initialPosition.X + dx);
-			ant.Position.Y.Should().Be(_initialPosition.Y + dy);
+			ant.Position.Should().Be(_initialDirection.MoveFrom(_initialPosition));
 		}
 	}
 }

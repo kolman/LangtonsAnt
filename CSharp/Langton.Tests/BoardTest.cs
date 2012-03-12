@@ -37,6 +37,7 @@ namespace Langton.Tests
 			_board.FlipColor(_blackCell);
 			_board.IsBlack(_blackCell).Should().BeFalse();
 		}
+
 		[Test]
 		public void CanFlipWhiteCellToBlack()
 		{

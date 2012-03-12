@@ -29,7 +29,7 @@ namespace Langton.Tests
 
 			_game.Tick();
 
-			_ant.Verify(a => a.Turn(Turn.Left));
+			_ant.Verify(a => a.Turn(Rotation.Left));
 		}
 
 		[Test]
@@ -39,7 +39,7 @@ namespace Langton.Tests
 
 			_game.Tick();
 
-			_ant.Verify(a => a.Turn(Turn.Right));
+			_ant.Verify(a => a.Turn(Rotation.Right));
 		}
 
 		[Test]
@@ -61,7 +61,7 @@ namespace Langton.Tests
 		public void TurnsAntThenFlipsColorThenMovesAnt()
 		{
 			var events = new List<string>();
-			_ant.Setup(a => a.Turn(It.IsAny<Turn>()))
+			_ant.Setup(a => a.Turn(It.IsAny<Rotation>()))
 				.Callback(() => events.Add("turn"));
 			_board.Setup(b => b.FlipColor(_position))
 				.Callback(() => events.Add("flip"));
